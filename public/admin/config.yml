@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway  # Utilise Netlify Identity + Git
+  branch: main  # Ta branche principale
+
+media_folder: public/img  # Où stocker les images uploadées
+public_folder: /img
+
+collections:
+  - name: products  # Collection pour CRUD produits
+    label: Produits Affiliés
+    folder: src/data/products  # Dossier Git où stocker les fichiers JSON
+    create: true  # Autorise création
+    slug: "{{slug}}"  # Nom de fichier
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - { label: "Prix", name: "price", widget: "number" }
+      - { label: "Lien Affilié", name: "affiliateLink", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+      # Ajoute d'autres champs si besoin (ex. id généré auto)
